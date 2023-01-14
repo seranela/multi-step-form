@@ -121,6 +121,9 @@
 	function changePlan() {
 		sessionStorage.setItem('step', 2);
 
+		// Setup tabbing based on current section
+		setTabbing(2);
+
 		// Show/hide form buttons
 		buttonNext.innerText = 'Next Step';
 
@@ -135,6 +138,54 @@
 		prevSection.classList.add('section-step-back-inactive');
 		nextSection.classList.remove('section-step-back-inactive', 'section-step-next-inactive');
 		nextSection.classList.add('section-step-back-active');
+	}
+
+	function setTabbing(sectionNumber) {
+		// Section 1
+		const personalInfos = document.querySelectorAll('.form-input');
+		for (let i = 0; i < personalInfos.length; ++i) {
+			if (sectionNumber === 1)
+				personalInfos[i].removeAttribute('tabindex');
+			else
+				personalInfos[i].setAttribute('tabindex', '-1');
+		}
+
+		// Section 2
+		const planChoices = document.querySelectorAll('.plan-radio');
+		for (let i = 0; i < planChoices.length; ++i) {
+			if (sectionNumber === 2)
+				planChoices[i].removeAttribute('tabindex');
+			else
+				planChoices[i].setAttribute('tabindex', '-1');
+		}
+		const planPeriod = document.getElementById('billing-checkbox');
+		if (sectionNumber === 2)
+			planPeriod.removeAttribute('tabindex');
+		else
+			planPeriod.setAttribute('tabindex', '-1');
+
+		// Section 3
+		const addons = document.querySelectorAll('.addon-checkbox');
+		for (let i = 0; i < addons.length; ++i) {
+			if (sectionNumber === 3)
+				addons[i].removeAttribute('tabindex');
+			else
+				addons[i].setAttribute('tabindex', '-1');
+		}
+
+		// Section 4
+		const cartLink = document.querySelector('.cart-link');
+		if (sectionNumber === 4)
+			cartLink.removeAttribute('tabindex');
+		else
+			cartLink.setAttribute('tabindex', '-1');
+
+		// Section 5
+		const supportLink = document.getElementById('support-link');
+		if (sectionNumber === 5)
+			supportLink.removeAttribute('tabindex');
+		else
+			supportLink.setAttribute('tabindex', '-1');
 	}
 
 	function goBack() {
@@ -156,6 +207,9 @@
 
 					// Go to previous section
 					sessionStorage.setItem('step', 1);
+
+					// Setup tabbing based on current section
+					setTabbing(1);
 
 					// Show/hide form buttons
 					buttonBack.classList.add('invisible');
@@ -185,6 +239,9 @@
 				// Prep values for previous section
 				updatePlanPricing();
 
+				// Setup tabbing based on current section
+				setTabbing(2);
+
 				// Show/hide form buttons
 				buttonBack.classList.remove('invisible');
 				buttonNext.innerText = 'Next Step';
@@ -213,6 +270,9 @@
 
 				// Prep values for previous section
 				updateAddonsPricing();
+
+				// Setup tabbing based on current section
+				setTabbing(3);
 
 				// Show/hide form buttons
 				buttonBack.classList.remove('invisible');
@@ -254,6 +314,9 @@
 					// Prep values for next section
 					updatePlanPricing();
 
+					// Setup tabbing based on current section
+					setTabbing(2);
+
 					// Show/hide form buttons
 					buttonBack.classList.remove('invisible');
 					buttonNext.innerText = 'Next Step';
@@ -282,6 +345,13 @@
 
 				// Prep values for next section
 				updateAddonsPricing();
+
+				// Setup tabbing based on current section
+				setTabbing(3);
+
+				// Show/hide form buttons
+				buttonBack.classList.remove('invisible');
+				buttonNext.innerText = 'Next Step';
 
 				// Show/hide form buttons
 				buttonBack.classList.remove('invisible');
@@ -312,6 +382,9 @@
 				// Prep values for next section
 				updateCartReview();
 
+				// Setup tabbing based on current section
+				setTabbing(4);
+
 				// Show/hide form buttons
 				buttonBack.classList.remove('invisible');
 				buttonNext.innerText = 'Confirm';
@@ -334,6 +407,9 @@
 				// AJAX calls omitted since this is for presentation purposes only.
 				// Assume successful submission at this point.
 
+				// Setup tabbing based on current section
+				setTabbing(5);
+
 				// Hide the form buttons
 				buttonBack.classList.add('invisible');
 				buttonNext.classList.add('invisible');
@@ -351,8 +427,29 @@
 		}
 	}
 
+	function onLoad() {
+		const planChoices = document.querySelectorAll('.plan-radio');
+		for (let i = 0; i < planChoices.length; ++i) {
+			planChoices[i].setAttribute('tabindex', '-1');
+		}
+		const planPeriod = document.getElementById('billing-checkbox');
+		planPeriod.setAttribute('tabindex', '-1');
+
+		const addons = document.querySelectorAll('.addon-checkbox');
+		for (let i = 0; i < addons.length; ++i) {
+			addons[i].setAttribute('tabindex', '-1');
+		}
+
+		const cartLink = document.querySelector('.cart-link');
+		cartLink.setAttribute('tabindex', '-1');
+
+		const supportLink = document.getElementById('support-link');
+		supportLink.setAttribute('tabindex', '-1');
+	}
+
 	toggleSwitchBilling.addEventListener('click', toggleSwitch, false);
 	cartChangeLink.addEventListener('click', changePlan, false);
 	buttonBack.addEventListener('click', goBack, false);
 	buttonNext.addEventListener('click', goNext, false);
+	window.addEventListener('load', onLoad, false);
 })();

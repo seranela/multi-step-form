@@ -169,9 +169,8 @@ main {
 	--section-offset: 0;
 	padding: 1.8rem 1.5rem 1.5rem 1.5rem;
 	flex: 1 0 100%;
-	transition: transform 0.2s;
 	transform: translateX(var(--section-offset));
-	/*display: none;*/
+	transition: transform 0.2s;
 }
 
 /* Form Transitions */
