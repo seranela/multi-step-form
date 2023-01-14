@@ -88,7 +88,7 @@ main {
 }
 
 .sidebar {
-	background: url(../assets/images/bg-sidebar-mobile.svg) center / cover no-repeat;
+	background: url(../assets/images/bg-sidebar-mobile.svg) center / cover no-repeat var(--color-primary-purplish-blue);
 	height: 10.5rem;
 	display: flex;
 	justify-content: center;
