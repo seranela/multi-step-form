@@ -6,7 +6,7 @@
 	--color-primary-purplish-blue: hsl(243, 100%, 62%);
 	--color-primary-pastel-blue: hsl(228, 100%, 84%);
 	--color-primary-light-blue: hsl(206, 94%, 87%);
-	--color-primary-strawberry-red: hsl(354, 84%, 57%);
+	--color-primary-red: hsl(354, 84%, 49%);
 	--color-neutral-dark-gray: hsl(231, 11%, 49%);
 	--color-neutral-light-gray: hsl(229, 24%, 87%);
 	--color-neutral-magnolia: hsl(217, 100%, 97%);
@@ -277,7 +277,7 @@ main {
 }
 
 .form-input:invalid {
-	border: 2px solid var(--color-primary-strawberry-red);
+	border: 2px solid var(--color-primary-red);
 }
 
 .form-input:invalid + .error-message {
@@ -329,7 +329,7 @@ main {
 
 .error-message {
 	display: none;
-	color: var(--color-primary-strawberry-red);
+	color: var(--color-primary-red);
 	font-size: 0.9rem;
 	font-weight: 500;
 	margin: 0;
