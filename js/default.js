@@ -131,13 +131,10 @@
 		document.getElementById('step-icon4').classList.remove('step-icon-active');
 		document.getElementById('step-icon2').classList.add('step-icon-active');
 
-		// Show/hide sections
-		const prevSection = document.getElementById('section-step4');
-		const nextSection = document.getElementById('section-step2');
-		prevSection.classList.remove('section-step-back-active', 'section-step-next-active');
-		prevSection.classList.add('section-step-back-inactive');
-		nextSection.classList.remove('section-step-back-inactive', 'section-step-next-inactive');
-		nextSection.classList.add('section-step-back-active');
+		// Transition form sections by updating CSS variable
+		for (let i = 0; i < sections.length; ++i) {
+			sections[i].style.setProperty('--section-offset', '-100%');
+		}
 	}
 
 	function setTabbing(sectionNumber) {
