@@ -206,7 +206,7 @@ main {
 }
 
 .form-input:focus {
-	outline: 2px solid var(--color-neutral-light-gray);
+	outline: 2px solid var(--color-primary-pastel-blue);
 }
 
 .form-input:invalid {
@@ -297,13 +297,18 @@ main {
 }
 
 .plan-radio {
-	visibility: hidden;
+	appearance: none;
+	opacity: 0;
 	position: absolute;
 }
 
 .plan-radio:checked + .plan-group {
 	background-color: var(--color-neutral-alabaster);
 	border: 2px solid var(--color-primary-pastel-blue);
+}
+
+.plan-radio:focus + .plan-group {
+	outline: 2px solid var(--color-primary-pastel-blue);
 }
 
 .plan-label:hover .plan-group {
@@ -451,6 +456,10 @@ main {
 
 .addon-checkbox:checked + .addon-label > .addon-checkbox-visual {
 	background: url(../assets/images/icon-checkmark.svg) center / 60% no-repeat var(--color-primary-purplish-blue);
+}
+
+.addon-checkbox:focus + .addon-label {
+	outline: 2px solid var(--color-primary-pastel-blue);
 }
 
 .addon-checkbox-visual {
