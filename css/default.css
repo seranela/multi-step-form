@@ -666,7 +666,7 @@ main {
 	.sidebar {
 		grid-row: 1 / span 2;
 		grid-column: 1;
-		background: url(../assets/images/bg-sidebar-desktop.svg) center bottom / cover no-repeat;
+		background: url(../assets/images/bg-sidebar-desktop.svg) center bottom / cover no-repeat var(--color-primary-purplish-blue);
 		width: 100%;
 		height: initial;
 		border-radius: 12px;
