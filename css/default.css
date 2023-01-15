@@ -191,6 +191,7 @@ main {
 	font-size: 0.9rem;
 	font-weight: 500;
 	letter-spacing: -0.02em;
+	line-height: 1;
 	color: var(--color-primary-marine-blue);
 }
 
@@ -209,12 +210,8 @@ main {
 	outline: 2px solid var(--color-primary-pastel-blue);
 }
 
-.form-input:invalid {
+.form-input-error {
 	border: 2px solid var(--color-primary-red);
-}
-
-.form-input:invalid + .error-message {
-	display: block;
 }
 
 .form-button-container {
@@ -261,12 +258,11 @@ main {
 }
 
 .error-message {
-	display: none;
 	color: var(--color-primary-red);
 	font-size: 0.9rem;
 	font-weight: 500;
 	margin: 0;
-	justify-self: end;
+	text-align: right;
 	line-height: 1;
 }
 

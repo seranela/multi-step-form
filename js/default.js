@@ -5,6 +5,7 @@
 	const buttonNext = document.getElementById('button-next');
 	let sections = document.querySelectorAll('.section-step');
 
+	// Prices [monthly, yearly]
 	const prices = {
 		'plans': {
 			'arcade': [9, 90],
@@ -185,6 +186,34 @@
 			supportLink.setAttribute('tabindex', '-1');
 	}
 
+	function updateInputValidity(obj) {
+		const id = obj.id;
+
+		if (obj.validity.valid) {
+			// Clear error statuses
+			obj.classList.remove('form-input-error');
+			document.getElementById(id + '-error-invalid').classList.add('hidden');
+			document.getElementById(id + '-error-required').classList.add('hidden');
+		} else {
+			obj.classList.add('form-input-error');
+
+			// Show error outline
+			document.getElementById(id + '-errors').classList.remove('hidden');
+
+			if (obj.value === '') {
+				// Input is blank - Show 'required' error
+				console.log(obj.id, obj.validity);
+				document.getElementById(id + '-error-invalid').classList.add('hidden');
+				document.getElementById(id + '-error-required').classList.remove('hidden');
+			} else {
+				// Input is not blank but invalid - Show 'invalid' error
+				console.log(obj.id, obj.validity);
+				document.getElementById(id + '-error-required').classList.add('hidden');
+				document.getElementById(id + '-error-invalid').classList.remove('hidden');
+			}
+		}
+	}
+
 	function goBack() {
 		const currentStep = sessionStorage.getItem('step');
 
@@ -297,9 +326,15 @@
 				const inputEmail = document.getElementById('email');
 				const inputPhone = document.getElementById('phone');
 
+				// Verify the validity of the inputs
 				if (inputName.validity.valid &&
 					inputEmail.validity.valid &&
 					inputPhone.validity.valid) {
+					const inputs = [inputName, inputEmail, inputPhone];
+					for (let i = 0; i < inputs.length; ++i) {
+						updateInputValidity(inputs[i]);
+					}
+
 					// Save data - insert form level data
 					sessionStorage.setItem('name', inputName.value);
 					sessionStorage.setItem('email', inputEmail.value);
@@ -325,6 +360,11 @@
 					// Transition form sections by updating CSS variable
 					for (let i = 0; i < sections.length; ++i) {
 						sections[i].style.setProperty('--section-offset', '-100%');
+					}
+				} else {
+					const inputs = [inputName, inputEmail, inputPhone];
+					for (let i = 0; i < inputs.length; ++i) {
+						updateInputValidity(inputs[i]);
 					}
 				}
 
@@ -425,23 +465,8 @@
 	}
 
 	function onLoad() {
-		const planChoices = document.querySelectorAll('.plan-radio');
-		for (let i = 0; i < planChoices.length; ++i) {
-			planChoices[i].setAttribute('tabindex', '-1');
-		}
-		const planPeriod = document.getElementById('billing-checkbox');
-		planPeriod.setAttribute('tabindex', '-1');
-
-		const addons = document.querySelectorAll('.addon-checkbox');
-		for (let i = 0; i < addons.length; ++i) {
-			addons[i].setAttribute('tabindex', '-1');
-		}
-
-		const cartLink = document.querySelector('.cart-link');
-		cartLink.setAttribute('tabindex', '-1');
-
-		const supportLink = document.getElementById('support-link');
-		supportLink.setAttribute('tabindex', '-1');
+		// On load, setup tabbing for default first section
+		setTabbing(1);
 	}
 
 	toggleSwitchBilling.addEventListener('click', toggleSwitch, false);

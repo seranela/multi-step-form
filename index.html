@@ -58,25 +58,25 @@
 				<div class="form-input-container">
 					<label for="name" class="form-label">Name</label>
 					<input type="text" name="name" id="name" class="form-input" placeholder="e.g. Stephen King" required>
-					<div class="error-message">
-						<p id="name-error-required" class="hidden">This field is required</p>
-						<p id="name-error-invalid" class="hidden">Enter a valid name</p>
+					<div id="name-errors" class="hidden">
+						<p id="name-error-required" class="error-message hidden">This field is required</p>
+						<p id="name-error-invalid" class="error-message hidden">Enter a valid name</p>
 					</div>
 				</div>
 				<div class="form-input-container">
 					<label for="email" class="form-label">Email Address</label>
 					<input type="email" name="email" id="email" class="form-input" placeholder="e.g. stephenking@lorem.com" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
-					<div class="error-message hidden">
-						<p id="email-error-required" class="hidden">This field is required</p>
-						<p id="email-error-invalid" class="hidden">Enter a valid email</p>
+					<div id="email-errors" class="hidden">
+						<p id="email-error-required" class="error-message hidden">This field is required</p>
+						<p id="email-error-invalid" class="error-message hidden">Enter a valid email</p>
 					</div>
 				</div>
 				<div class="form-input-container">
 					<label for="phone" class="form-label">Phone Number</label>
 					<input type="text" name="phone" id="phone" class="form-input" placeholder="e.g. +1 234 567 890" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" required>
-					<div class="error-message">
-						<p id="phone-error-required" class="hidden">This field is required</p>
-						<p id="phone-error-invalid" class="hidden">Enter a valid phone number</p>
+					<div id="phone-errors" class="hidden">
+						<p id="phone-error-required" class="error-message hidden">This field is required</p>
+						<p id="phone-error-invalid" class="error-message hidden">Enter a valid phone number</p>
 					</div>
 				</div>
 			</section>
