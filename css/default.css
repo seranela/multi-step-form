@@ -155,7 +155,6 @@ main {
 
 .form-personal-info {
 	background-color: var(--color-neutral-white);
-	/*padding: 1.8rem 1.5rem 1.5rem 1.5rem;*/
 	border-radius: 14px;
 	position: relative;
 	top: -4.5rem;
@@ -207,7 +206,7 @@ main {
 }
 
 .form-input:focus {
-	outline: 2px solid var(--color-primary-pastel-blue);
+	outline: 2px solid var(--color-primary-marine-blue);
 }
 
 .form-input-error {
@@ -287,7 +286,7 @@ main {
 }
 
 .plan-radio:focus + .plan-label {
-	outline: 2px solid var(--color-primary-pastel-blue);
+	outline: 2px solid var(--color-primary-marine-blue);
 }
 
 .plan-label {
@@ -357,7 +356,7 @@ main {
 }
 
 .toggle-switch:focus {
-	outline: 1px solid blue;
+	outline: 2px solid var(--color-primary-purplish-blue);
 }
 
 .toggle-switch:hover {
@@ -456,7 +455,7 @@ main {
 }
 
 .addon-checkbox:focus + .addon-label {
-	outline: 2px solid var(--color-primary-pastel-blue);
+	outline: 2px solid var(--color-primary-marine-blue);
 }
 
 .addon-checkbox-visual {
