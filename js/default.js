@@ -22,9 +22,9 @@
 	sessionStorage.setItem('step', 1);
 
 	function updatePlanPricing() {
-		const planLabels = document.querySelectorAll('.plan-label1');
-		const planCostLabels = document.querySelectorAll('.plan-label2');
-		const planBonusLabels = document.querySelectorAll('.plan-label3');
+		const planLabels = document.querySelectorAll('.plan-span1');
+		const planCostLabels = document.querySelectorAll('.plan-span2');
+		const planBonusLabels = document.querySelectorAll('.plan-span3');
 
 		for (let i = 0; i < planCostLabels.length; ++i) {
 			const planName = planLabels[i].innerText.toLowerCase();
